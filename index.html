@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dean Racing | Motorsports Passion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --black: #0a0a0a; --dark: #121212; --card: #1a1a1a; --red: #e10600; --red-dark: #b00500; --silver: #c0c0c0; --white: #f5f5f5; --muted: #888; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--black); color: var(--white); line-height: 1.6; overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    a { color: var(--red); text-decoration: none; transition: 0.3s; }
+    a:hover { color: #ff2a24; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10,10,10,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid #222; padding: 15px 0; }
+    nav { display: flex; justify-content: space-between; align-items: center; }
+    .logo { height: 50px; }
+    .nav-links { display: flex; gap: 30px; list-style: none; }
+    .nav-links a { color: var(--white); font-weight: 500; font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--red); }
+    .cta-btn { background: var(--red); color: white !important; padding: 10px 22px; border-radius: 4px; font-weight: 600; font-size: 0.9rem; }
+    .cta-btn:hover { background: var(--red-dark); }
+    .hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a0a 100%); }
+    .hero::before { content: ''; position: absolute; inset: 0; background: url('racing-collage-web.jpg') center/cover no-repeat; opacity: 0.25; filter: grayscale(40%) contrast(1.2); }
+    .hero-content { position: relative; text-align: center; z-index: 2; padding: 20px; }
+    .hero-logo { max-width: 420px; margin-bottom: 30px; filter: drop-shadow(0 10px 30px rgba(225,6,0,0.3)); }
+    .hero h1 { font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 10px; text-shadow: 0 4px 20px rgba(0,0,0,0.8); }
+    .hero p { font-size: 1.3rem; color: var(--silver); max-width: 600px; margin: 0 auto 30px; font-weight: 300; }
+    .hero-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+    .btn-outline { border: 2px solid var(--red); color: var(--red); padding: 12px 28px; border-radius: 4px; font-weight: 600; }
+    .btn-outline:hover { background: var(--red); color: white; }
+    section { padding: 100px 0; }
+    .section-title { text-align: center; font-size: 2.8rem; margin-bottom: 15px; }
+    .section-subtitle { text-align: center; color: var(--muted); max-width: 700px; margin: 0 auto 60px; font-size: 1.1rem; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
+    .gallery-item { position: relative; overflow: hidden; border-radius: 12px; background: var(--card); aspect-ratio: 16/10; box-shadow: 0 10px 40px rgba(0,0,0,0.5); transition: transform 0.4s; }
+    .gallery-item:hover { transform: translateY(-8px); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 30px 20px 20px; color: white; }
+    .gallery-overlay h3 { font-size: 1.4rem; margin-bottom: 5px; }
+    .gallery-overlay p { font-size: 0.9rem; color: #ccc; }
+    .about { background: var(--dark); }
+    .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .about-text h2 { font-size: 2.5rem; margin-bottom: 20px; }
+    .about-text p { margin-bottom: 15px; color: #ddd; }
+    .about-image { border-radius: 12px; overflow: hidden; box-shadow: 0 20px 50px rgba(225,6,0,0.2); }
+    .about-image img { width: 100%; height: auto; display: block; }
+    .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+    .cat-card { background: var(--card); padding: 30px; border-radius: 12px; border: 1px solid #222; text-align: center; transition: 0.3s; }
+    .cat-card:hover { border-color: var(--red); transform: translateY(-5px); }
+    .cat-card h3 { color: var(--red); margin-bottom: 10px; font-size: 1.5rem; }
+    .cat-card p { color: var(--muted); font-size: 0.95rem; }
+    footer { background: #050505; padding: 60px 0 30px; border-top: 1px solid #222; text-align: center; }
+    footer .logo { height: 60px; margin-bottom: 20px; }
+    footer p { color: var(--muted); margin-bottom: 10px; }
+    .footer-links { display: flex; justify-content: center; gap: 25px; margin: 20px 0; list-style: none; }
+    .footer-links a { color: var(--silver); }
+    @media (max-width: 768px) { .nav-links { display: none; } .about-content { grid-template-columns: 1fr; gap: 40px; } .hero h1 { font-size: 2.8rem; } section { padding: 70px 0; } }
+    .accent-line { width: 80px; height: 4px; background: var(--red); margin: 20px auto 40px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <img src="logo.jpg" alt="Dean Racing" class="logo">
+        <ul class="nav-links">
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#disciplines">Disciplines</a></li>
+          <li><a href="#contact" class="cta-btn">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="hero-content">
+      <img src="logo.jpg" alt="Dean Racing Logo" class="hero-logo">
+      <h1>Speed. Precision. Passion.</h1>
+      <p>From dirt tracks to Rolex circuits, open-wheel legends to classic muscle — capturing the spirit of motorsports.</p>
+      <div class="hero-btns">
+        <a href="#gallery" class="cta-btn" style="padding: 14px 32px; font-size: 1rem;">View Gallery</a>
+        <a href="#about" class="btn-outline">Our Story</a>
+      </div>
+    </div>
+  </section>
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Racing Moments</h2>
+      <div class="accent-line"></div>
+      <p class="section-subtitle">A visual journey through stock cars, open-wheel machines, dirt track battles, and iconic racing venues.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="racing-collage-web.jpg" alt="Racing Collage"><div class="gallery-overlay"><h3>Full Collection</h3><p>Stock cars, IndyCar legends, Rolex 24 atmosphere, and more</p></div></div>
+        <div class="gallery-item"><img src="racing-collage-web.jpg" alt="Stock Cars" style="object-position: 20% 15%;"><div class="gallery-overlay"><h3>Stock Car Action</h3><p>Trackside with the #7 and crew</p></div></div>
+        <div class="gallery-item"><img src="racing-collage-web.jpg" alt="Open Wheel" style="object-position: 40% 55%;"><div class="gallery-overlay"><h3>Open Wheel</h3><p>Miller Lite / Shell championship machines</p></div></div>
+        <div class="gallery-item"><img src="racing-collage-web.jpg" alt="Dirt Track" style="object-position: 15% 85%;"><div class="gallery-overlay"><h3>Dean's #32</h3><p>Dirt track warrior — Butrum powered</p></div></div>
+        <div class="gallery-item"><img src="racing-collage-web.jpg" alt="Rolex Series" style="object-position: 75% 40%;"><div class="gallery-overlay"><h3>Rolex Endurance</h3><p>Grandstand views and prototype racing</p></div></div>
+        <div class="gallery-item"><img src="racing-collage-web.jpg" alt="Museum Cars" style="object-position: 80% 85%;"><div class="gallery-overlay"><h3>Racing Heritage</h3><p>Concept, culture, and legendary machines</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>The Drive Behind the Wheel</h2>
+          <div class="accent-line" style="margin-left: 0;"></div>
+          <p>Motorsports runs in the blood. From the roar of stock cars on asphalt to the high-speed precision of open-wheel racing and the raw intensity of dirt track competition, every image tells a story of speed, engineering, and pure adrenaline.</p>
+          <p>Dean Racing celebrates the machines, the tracks, the teams, and the culture that make racing the ultimate test of man and machine. Whether it's a classic muscle car leaving rubber, an IndyCar in full flight, or a local dirt modified flying the Dean's colors — the passion is the same.</p>
+          <p>Rooted in a family tradition that once fielded teams in NASCAR's top series, the focus remains on the pure love of the sport and the machines that push the limits.</p>
+        </div>
+        <div class="about-image"><img src="racing-collage-web.jpg" alt="Racing action"></div>
+      </div>
+    </div>
+  </section>
+  <section id="disciplines">
+    <div class="container">
+      <h2 class="section-title">Racing Disciplines</h2>
+      <div class="accent-line"></div>
+      <p class="section-subtitle">From short tracks to endurance classics, the spectrum of motorsports.</p>
+      <div class="categories">
+        <div class="cat-card"><h3>Stock Car</h3><p>High-banked ovals, close-quarters racing, and the thunder of V8s. Trackside action and pit strategy.</p></div>
+        <div class="cat-card"><h3>Open Wheel</h3><p>IndyCar and Formula-style machines. Downforce, precision, and the purest form of racing.</p></div>
+        <div class="cat-card"><h3>Dirt Track</h3><p>Raw, dusty, and unforgiving. Modifieds and late models where skill meets grit — Dean's #32 territory.</p></div>
+        <div class="cat-card"><h3>Endurance</h3><p>Rolex 24 and prototype racing. Strategy, reliability, and the long game under the lights.</p></div>
+      </div>
+    </div>
+  </section>
+  <footer id="contact">
+    <div class="container">
+      <img src="logo.jpg" alt="Dean Racing" class="logo">
+      <p>Passion for speed. Respect for the craft.</p>
+      <ul class="footer-links">
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#disciplines">Disciplines</a></li>
+      </ul>
+      <p style="margin-top: 30px; font-size: 0.85rem;">&copy; 2026 Dean Racing. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
